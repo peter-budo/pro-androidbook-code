@@ -21,12 +21,12 @@ public class ProviderTester extends BaseTester
 	{
 		Log.d(tag,"Adding a book");
 		ContentValues cv = new ContentValues();
-		cv.put(BookTableMetaData.BOOK_NAME, "book1");
-		cv.put(BookTableMetaData.BOOK_ISBN, "isbn-1");
-		cv.put(BookTableMetaData.BOOK_AUTHOR, "author-1");
+		cv.put(BookProviderMetaData.BookTableMetaData.BOOK_NAME, "book1");
+		cv.put(BookProviderMetaData.BookTableMetaData.BOOK_ISBN, "isbn-1");
+		cv.put(BookProviderMetaData.BookTableMetaData.BOOK_AUTHOR, "author-1");
 
 		ContentResolver cr = this.mContext.getContentResolver();
-		Uri uri = BookTableMetaData.CONTENT_URI;
+		Uri uri = BookProviderMetaData.BookTableMetaData.CONTENT_URI;
 		Log.d(tag,"book insert uri:" + uri);
 		Uri insertedUri = cr.insert(uri, cv);
 		Log.d(tag,"inserted uri:" + insertedUri);
@@ -36,7 +36,7 @@ public class ProviderTester extends BaseTester
 	{
 		int i = getCount();
 		ContentResolver cr = this.mContext.getContentResolver();
-		Uri uri = BookTableMetaData.CONTENT_URI;
+		Uri uri = BookProviderMetaData.BookTableMetaData.CONTENT_URI;
 		Uri delUri = Uri.withAppendedPath(uri, Integer.toString(i));
 		reportString("Del Uri:" + delUri);
 		cr.delete(delUri, null, null);
@@ -44,16 +44,16 @@ public class ProviderTester extends BaseTester
 	}
 	public void showBooks()
 	{
-		Uri uri = BookTableMetaData.CONTENT_URI;
+		Uri uri = BookProviderMetaData.BookTableMetaData.CONTENT_URI;
 		Activity a = (Activity)this.mContext;
 		Cursor c = a.managedQuery(uri,
 				null, //projection
 				null, //selection string
 				null, //selection args array of strings
 				null); //sort order
-		int iname = c.getColumnIndex(BookTableMetaData.BOOK_NAME);
-		int iisbn = c.getColumnIndex(BookTableMetaData.BOOK_ISBN);
-		int iauthor = c.getColumnIndex(BookTableMetaData.BOOK_AUTHOR);
+		int iname = c.getColumnIndex(BookProviderMetaData.BookTableMetaData.BOOK_NAME);
+		int iisbn = c.getColumnIndex(BookProviderMetaData.BookTableMetaData.BOOK_ISBN);
+		int iauthor = c.getColumnIndex(BookProviderMetaData.BookTableMetaData.BOOK_AUTHOR);
 
 		//Report your indexes
 		reportString("name,isbn,author:" + iname + iisbn + iauthor);
@@ -86,7 +86,7 @@ public class ProviderTester extends BaseTester
 	}
 	private int getCount()
 	{
-		Uri uri = BookTableMetaData.CONTENT_URI;
+		Uri uri = BookProviderMetaData.BookTableMetaData.CONTENT_URI;
 		Activity a = (Activity)this.mContext;
 		Cursor c = a.managedQuery(uri,
 				null, //projection

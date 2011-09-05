@@ -19,6 +19,7 @@ public class BookProvider extends ContentProvider {
     private static HashMap<String, String> sBooksProjectionMap;
 
     static {
+        sBooksProjectionMap = new HashMap<String, String>();
         sBooksProjectionMap.put(BookTableMetaData._ID,
             BookTableMetaData._ID);
         sBooksProjectionMap.put(BookTableMetaData.BOOK_NAME,
