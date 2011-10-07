@@ -11,6 +11,7 @@
     <modules>
         <module>chap04-BookProvider</module>
         <module>pro-androidbook-code-it</module>
+        <module>chap05-Intents</module>
     </modules>
 
     <dependencyManagement>
