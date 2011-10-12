@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello chap05-Intents!</string>
-    <string name="app_name">chap05-Intents</string>
+    <string name="hello">Exercise System Intents</string>
+    <string name="app_name">Exercise System Intents</string>
+    <item type="id" name="myviewId"/>
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/menuGroup_Main">
+        <item android:id="@+id/menu_basic_view"
+              android:title="Invoke BasicView" />
+
+        <item android:id="@+id/menu_show_browser"
+              android:title="show browser" />
+
+        <item android:id="@+id/menu_search"
+              android:title="search" />
+
+        <item android:id="@+id/menu_dial"
+              android:title="dial" />
+
+        <item android:id="@+id/menu_call"
+              android:title="call" />
+
+        <item android:id="@+id/menu_map"
+              android:title="map" />
+
+        <item android:id="@+id/menu_testPick"
+              android:title="Test Pick" />
+
+        <item android:id="@+id/menu_testGetContent"
+              android:title="Test Get Content" />
+
+        <item android:id="@+id/menu_clear"
+              android:title="clear" />
+    </group>
+</menu>
