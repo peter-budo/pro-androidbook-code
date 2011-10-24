@@ -1,6 +1,6 @@
 #IntelliJ IDEA#
 ###############
-*.impl
+*.iml
 *.ipr
 *.iws
 .idea
