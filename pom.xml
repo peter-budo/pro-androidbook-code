@@ -10,13 +10,15 @@
 
     <modules>
         <module>chap04-BookProvider</module>
-        <module>pro-androidbook-code-it</module>
+        <module>chap04-it-test</module>
         <module>chap05-Intents</module>
         <module>chap06-Controls</module>
     </modules>
 
     <properties>
-        <android.maven.plugin>3.0.0-alpha-13</android.maven.plugin>
+        <android.maven.plugin>3.0.0-alpha-14</android.maven.plugin>
+        <com.google.android>2.3.3</com.google.android>
+        <maven.compiler.plugin>2.3.2</maven.compiler.plugin>
     </properties>
 
     <dependencyManagement>
@@ -24,17 +26,13 @@
             <dependency>
                 <groupId>com.google.android</groupId>
                 <artifactId>android</artifactId>
-                <version>
-                    2.3.3
-                </version>
+                <version>${com.google.android}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>com.google.android</groupId>
                 <artifactId>android-test</artifactId>
-                <version>
-                    2.3.3
-                </version>
+                <version>${com.google.android}</version>
                 <scope>provided</scope>
             </dependency>
 
@@ -59,12 +57,12 @@
             <plugins>
                 <plugin>
                     <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                    <artifactId>maven-android-plugin</artifactId>
+                    <artifactId>android-maven-plugin</artifactId>
                     <version>${android.maven.plugin}</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
+                    <version>${maven.compiler.plugin}</version>
                 </plugin>
             </plugins>
         </pluginManagement>
