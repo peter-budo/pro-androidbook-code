@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="uk.co.peterscorner" android:versionCode="1" android:versionName="1.0-SNAPSHOT">
 
-    <application android:icon="@drawable/icon" android:label="Test Intents">
+    <application android:icon="@drawable/icon" android:label="Chap05 - Intents">
         <activity android:name=".MainActivity"
-            android:label="Test Intents">
+            android:label="Chap05 - Intents">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
 </manifest>
 
