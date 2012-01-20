@@ -2,4 +2,11 @@
 <resources>
     <string name="hello">Hello chap06-Controls!</string>
     <string name="app_name">chap06-Controls</string>
+
+
+    <string name="textview_name">TextView Demo</string>
+    <string name="tv">I am a TextView</string>
+    <string name="et">I am an EditText</string>
+    <string name="actv">AutoComplite:</string>
+    <string name="mactv">MultiAutoComplite:</string>
 </resources>
