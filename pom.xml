@@ -16,8 +16,8 @@
     </modules>
 
     <properties>
-        <android.maven.plugin>3.0.0-alpha-14</android.maven.plugin>
-        <com.google.android>2.3.3</com.google.android>
+        <android.maven.plugin>3.0.2</android.maven.plugin>
+        <com.google.android>4.0.1.2</com.google.android>
         <maven.compiler.plugin>2.3.2</maven.compiler.plugin>
     </properties>
 
@@ -40,7 +40,7 @@
             <dependency>
                 <groupId>de.akquinet.android.androlog</groupId>
                 <artifactId>androlog</artifactId>
-                <version>1.0.4</version>
+                <version>1.0.5</version>
             </dependency>
 
             <dependency>
