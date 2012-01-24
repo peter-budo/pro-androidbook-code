@@ -9,4 +9,6 @@
     <string name="et">I am an EditText</string>
     <string name="actv">AutoComplite:</string>
     <string name="mactv">MultiAutoComplite:</string>
+
+    <string name="spinnerprompt">Please choose a planet</string>
 </resources>
