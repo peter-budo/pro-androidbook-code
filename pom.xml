@@ -16,8 +16,8 @@
     </modules>
 
     <properties>
-        <android.maven.plugin>3.0.2</android.maven.plugin>
-        <com.google.android>4.0.1.2</com.google.android>
+        <android.maven.plugin>3.1.1</android.maven.plugin>
+        <com.google.android>2.3.3</com.google.android>
         <maven.compiler.plugin>2.3.2</maven.compiler.plugin>
     </properties>
 
@@ -46,7 +46,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.8.1</version>
+                <version>4.10</version>
                 <scope>provided</scope>
             </dependency>
         </dependencies>
