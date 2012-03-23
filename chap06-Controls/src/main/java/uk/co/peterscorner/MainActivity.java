@@ -6,15 +6,17 @@ import android.view.ViewGroup.LayoutParams;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class MainActivity extends Activity{
+public class MainActivity extends Activity {
 
     private LinearLayout nameContainer;
     private LinearLayout addressContainer;
     private LinearLayout parentContainer;
 
-    /** Called when the activity is first started. */
+    /**
+     * Called when the activity is first started.
+     */
     @Override
-    public void onCreate(Bundle savedInstanceState){
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         createNameContainer();
         createAddressContainer();

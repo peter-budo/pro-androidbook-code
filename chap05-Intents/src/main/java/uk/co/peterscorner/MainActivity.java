@@ -40,83 +40,83 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        try{
+        try {
             handleMenus(item);
-        } catch (Throwable t){
+        } catch (Throwable t) {
             Log.d(TAG, t.getMessage(), t);
             throw new RuntimeException("error", t);
         }
         return true;
     }
 
-    private void handleMenus(MenuItem item){
+    private void handleMenus(MenuItem item) {
         this.appendMenuItemText(item);
-        if(item.getItemId() == R.id.menu_clear){
+        if (item.getItemId() == R.id.menu_clear) {
             this.emptyText();
-        } else if(item.getItemId() == R.id.menu_basic_view){
+        } else if (item.getItemId() == R.id.menu_basic_view) {
             IntentUtils.invokeBasicActivity(this);
-        } else if(item.getItemId() == R.id.menu_show_browser) {
+        } else if (item.getItemId() == R.id.menu_show_browser) {
             IntentUtils.invokeWebBrowser(this);
-        }else if(item.getItemId() == R.id.menu_search){
+        } else if (item.getItemId() == R.id.menu_search) {
             IntentUtils.invokeWebSearch(this);
-        } else if (item.getItemId() == R.id.menu_dial){
+        } else if (item.getItemId() == R.id.menu_dial) {
             IntentUtils.dial(this);
-        } else if (item.getItemId() == R.id.menu_call){
+        } else if (item.getItemId() == R.id.menu_call) {
             IntentUtils.call(this);
-        } else if (item.getItemId() == R.id.menu_map){
+        } else if (item.getItemId() == R.id.menu_map) {
             IntentUtils.showMapAtLatLong(this);
         } else if (item.getItemId() == R.id.menu_testPick) {
             IntentUtils.invokePick(this);
-        }  else if (item.getItemId() == R.id.menu_testGetContent){
+        } else if (item.getItemId() == R.id.menu_testGetContent) {
             IntentUtils.invokeGetContent(this);
         }
     }
 
-    private TextView getTextView(){
+    private TextView getTextView() {
         TextView tv = (TextView) this.findViewById(R.id.textViewId);
         return tv;
     }
 
-    public void appendText(String text){
-        TextView tv = (TextView)this.findViewById(R.id.textViewId);
+    public void appendText(String text) {
+        TextView tv = (TextView) this.findViewById(R.id.textViewId);
         tv.setText(tv.getText() + text);
     }
 
-    public void appendMenuItemText(MenuItem menuItem){
+    public void appendMenuItemText(MenuItem menuItem) {
         String title = menuItem.getTitle().toString();
-        TextView tv = (TextView)this.findViewById(R.id.textViewId);
+        TextView tv = (TextView) this.findViewById(R.id.textViewId);
         tv.setText(tv.getText() + "\n" + title + ":" + menuItem.getItemId());
     }
 
-    private void emptyText(){
+    private void emptyText() {
         TextView tv = (TextView) this.findViewById(R.id.textViewId);
         tv.setText("");
     }
 
-    private void dial(){
+    private void dial() {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         this.startActivity(intent);
     }
 
-    private void setupButton(){
-        Button b = (Button)this.findViewById(R.id.button1);
+    private void setupButton() {
+        Button b = (Button) this.findViewById(R.id.button1);
         b.setOnClickListener(
-            new Button.OnClickListener(){
+                new Button.OnClickListener() {
 
-                public void onClick(View view) {
-                    parentButtonClicked(view);
+                    public void onClick(View view) {
+                        parentButtonClicked(view);
+                    }
                 }
-            }
         );
     }
 
-    private void parentButtonClicked(View v){
+    private void parentButtonClicked(View v) {
         this.appendText("\nbutton clicked");
         this.dialUsingEditText();
     }
 
-    private void dialWithNumber(String tel){
+    private void dialWithNumber(String tel) {
         String telUriString = "tel:" + tel;
         Log.d(TAG, telUriString);
         Intent intent = new Intent(Intent.ACTION_DIAL);
@@ -125,24 +125,24 @@ public class MainActivity extends Activity {
         this.startActivity(intent);
     }
 
-    private void dialUsingEditText(){
-        EditText etext = (EditText)this.findViewById(R.id.editTextId);
+    private void dialUsingEditText() {
+        EditText etext = (EditText) this.findViewById(R.id.editTextId);
         String text = etext.getText().toString();
-        if(PhoneNumberUtils.isGlobalPhoneNumber(text) == true){
+        if (PhoneNumberUtils.isGlobalPhoneNumber(text) == true) {
             dialWithNumber(text);
         }
     }
 
-    private EditText getEditText(){
+    private EditText getEditText() {
         return (EditText) this.findViewById(R.id.editTextId);
     }
 
-    private void setupEditText(){
+    private void setupEditText() {
         EditText etext = this.getEditText();
         etext.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent outputIntent){
+    protected void onActivityResult(int requestCode, int resultCode, Intent outputIntent) {
         super.onActivityResult(requestCode, resultCode, outputIntent);
         IntentUtils.parseResult(this, requestCode, resultCode, outputIntent);
     }

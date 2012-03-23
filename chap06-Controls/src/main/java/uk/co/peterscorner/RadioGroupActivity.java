@@ -7,17 +7,17 @@ import android.widget.RadioGroup;
 
 public class RadioGroupActivity extends Activity {
     protected static final String TAG = "RadioGroupActivity";
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.radiogroup);
-        
-        RadioGroup radGrp = (RadioGroup)findViewById(R.id.radGrp);
-        
+
+        RadioGroup radGrp = (RadioGroup) findViewById(R.id.radGrp);
+
         radGrp.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup radioGroup, int id) {
-                switch (id){
+                switch (id) {
                     case -1:
                         Log.v(TAG, "Choices cleared!");
                         break;

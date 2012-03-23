@@ -11,8 +11,8 @@ public class SpinnerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spinner);
-        
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
 
         ArrayAdapter<CharSequence> adapter =
                 ArrayAdapter.createFromResource(this, R.array.planets, android.R.layout.simple_spinner_item);

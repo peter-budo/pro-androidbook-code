@@ -25,7 +25,7 @@ public class DateTimePickerActivity extends Activity {
                 + (dp.getDayOfMonth())
                 + "/"
                 + (dp.getYear()));
-        
+
         dp.init(2012, 0, 24, null);
 
         TimePicker tp = (TimePicker) findViewById(R.id.timePicker);

@@ -12,7 +12,7 @@
                  android:layout_width="wrap_content"
                  android:layout_height="wrap_content"
                  android:text="Image Button"
-                android:src="@drawable/imagebuttonselector"/>
+                 android:src="@drawable/imagebuttonselector"/>
     <ToggleButton android:id="@+id/ccbtn3"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"

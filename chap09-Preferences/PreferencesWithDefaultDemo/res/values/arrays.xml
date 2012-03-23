@@ -1,0 +1,12 @@
+<resources>
+    <string-array name="flight_sort_options">
+        <item>Total Cost</item>
+        <item># of Stops</item>
+        <item>Airline</item>
+    </string-array>
+    <string-array name="flight_sort_options_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+</resources>

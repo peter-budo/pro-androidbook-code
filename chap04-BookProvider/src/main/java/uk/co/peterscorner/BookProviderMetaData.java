@@ -6,13 +6,14 @@ import android.provider.BaseColumns;
 public class BookProviderMetaData {
 
     public static final String AUTHORITY = "uk.co.peterscorner.BookProvider";
-    public static final String DATABASE_NAME= "book.db";
+    public static final String DATABASE_NAME = "book.db";
     public static final int DATABASE_VERSION = 1;
     public static final String BOOK_TABLE_NAME = "/books";
 
-    public BookProviderMetaData() {}
+    public BookProviderMetaData() {
+    }
 
-    public static final class BookTableMetaData implements BaseColumns{
+    public static final class BookTableMetaData implements BaseColumns {
         public static final String TABLE_NAME = "books";
 
         public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + BOOK_TABLE_NAME);

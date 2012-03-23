@@ -21,18 +21,18 @@ public class BookProvider extends ContentProvider {
     static {
         sBooksProjectionMap = new HashMap<String, String>();
         sBooksProjectionMap.put(BookTableMetaData._ID,
-            BookTableMetaData._ID);
+                BookTableMetaData._ID);
         sBooksProjectionMap.put(BookTableMetaData.BOOK_NAME,
-            BookTableMetaData.BOOK_NAME);
+                BookTableMetaData.BOOK_NAME);
         sBooksProjectionMap.put(BookTableMetaData.BOOK_ISBN,
-            BookTableMetaData.BOOK_ISBN);
+                BookTableMetaData.BOOK_ISBN);
         sBooksProjectionMap.put(BookTableMetaData.BOOK_AUTHOR,
-            BookTableMetaData.BOOK_AUTHOR);
+                BookTableMetaData.BOOK_AUTHOR);
 
         sBooksProjectionMap.put(BookTableMetaData.CREATED_DATE,
-            BookTableMetaData.CREATED_DATE);
+                BookTableMetaData.CREATED_DATE);
         sBooksProjectionMap.put(BookTableMetaData.MODIFIED_DATE,
-            BookTableMetaData.MODIFIED_DATE);
+                BookTableMetaData.MODIFIED_DATE);
     }
 
     private static final UriMatcher sUriMatcher;
@@ -49,32 +49,32 @@ public class BookProvider extends ContentProvider {
 
         DatabaseHelper(Context context) {
             super(context,
-                BookProviderMetaData.DATABASE_NAME,
-                null,
-                BookProviderMetaData.DATABASE_VERSION);
+                    BookProviderMetaData.DATABASE_NAME,
+                    null,
+                    BookProviderMetaData.DATABASE_VERSION);
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
             Log.d(TAG, "inner oncreate called");
             db.execSQL("CREATE TABLE " + BookTableMetaData.TABLE_NAME + "("
-                + BookTableMetaData._ID + " INTEGER PRIMARY KEY,"
-                + BookTableMetaData.BOOK_NAME + " TEXT,"
-                + BookTableMetaData.BOOK_ISBN + " TEXT,"
-                + BookTableMetaData.BOOK_AUTHOR + " TEXT,"
-                + BookTableMetaData.CREATED_DATE + " INTEGER,"
-                + BookTableMetaData.MODIFIED_DATE + " INTEGER"
-                + ");");
+                    + BookTableMetaData._ID + " INTEGER PRIMARY KEY,"
+                    + BookTableMetaData.BOOK_NAME + " TEXT,"
+                    + BookTableMetaData.BOOK_ISBN + " TEXT,"
+                    + BookTableMetaData.BOOK_AUTHOR + " TEXT,"
+                    + BookTableMetaData.CREATED_DATE + " INTEGER,"
+                    + BookTableMetaData.MODIFIED_DATE + " INTEGER"
+                    + ");");
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             Log.d(TAG, "inner onupgrade called2");
             Log.w(TAG, "Upgrading database from version "
-                + oldVersion + " to "
-                + newVersion + ", which will destroy all old data");
+                    + oldVersion + " to "
+                    + newVersion + ", which will destroy all old data");
             db.execSQL("DROP TABLE IF EXISTS "
-                + BookTableMetaData.TABLE_NAME);
+                    + BookTableMetaData.TABLE_NAME);
             onCreate(db);
         }
     }
@@ -101,7 +101,7 @@ public class BookProvider extends ContentProvider {
                 qb.setTables(BookTableMetaData.TABLE_NAME);
                 qb.setProjectionMap(sBooksProjectionMap);
                 qb.appendWhere(BookTableMetaData._ID + "="
-                    + uri.getPathSegments().get(1));
+                        + uri.getPathSegments().get(1));
                 break;
             default:
                 throw new IllegalArgumentException("Uknown URI " + uri);
@@ -140,7 +140,7 @@ public class BookProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues initialValues) {
         if (sUriMatcher.match(uri)
-            != INCOMING_BOOK_COLLECTION_URI_INDICATOR) {
+                != INCOMING_BOOK_COLLECTION_URI_INDICATOR) {
             throw new IllegalArgumentException("Unknown URI " + uri);
         }
 
@@ -161,7 +161,7 @@ public class BookProvider extends ContentProvider {
         }
         if (values.containsKey(BookTableMetaData.BOOK_NAME) == false) {
             throw new SQLException(
-                "Failed to insert row because Book Name is needed " + uri);
+                    "Failed to insert row because Book Name is needed " + uri);
         }
         if (values.containsKey(BookTableMetaData.BOOK_ISBN) == false) {
             values.put(BookTableMetaData.BOOK_ISBN, "Unknown ISBN");
@@ -172,7 +172,7 @@ public class BookProvider extends ContentProvider {
 
         SQLiteDatabase db = mOpenHelper.getWritableDatabase();
         long rowId = db.insert(BookTableMetaData.TABLE_NAME,
-            BookTableMetaData.BOOK_NAME, values);
+                BookTableMetaData.BOOK_NAME, values);
         if (rowId > 0) {
             Uri insertedBookUri = ContentUris.withAppendedId(BookTableMetaData.CONTENT_URI, rowId);
             getContext().getContentResolver().notifyChange(insertedBookUri, null);
@@ -188,14 +188,14 @@ public class BookProvider extends ContentProvider {
         switch (sUriMatcher.match(uri)) {
             case INCOMING_BOOK_COLLECTION_URI_INDICATOR:
                 count = db.delete(BookTableMetaData.TABLE_NAME,
-                    where, whereArgs);
+                        where, whereArgs);
                 break;
             case INCOMING_SINGLE_BOOK_URI_INDICATOR:
                 String rowId = uri.getPathSegments().get(1);
                 count = db.delete(BookTableMetaData.TABLE_NAME,
-                    BookTableMetaData._ID + "=" + rowId
-                        + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : ""),
-                    whereArgs);
+                        BookTableMetaData._ID + "=" + rowId
+                                + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : ""),
+                        whereArgs);
                 break;
 
             default:
@@ -217,8 +217,8 @@ public class BookProvider extends ContentProvider {
             case INCOMING_SINGLE_BOOK_URI_INDICATOR:
                 String rowId = uri.getPathSegments().get(1);
                 count = db.update(BookTableMetaData.TABLE_NAME, values, BookTableMetaData._ID + "=" + rowId
-                    + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : ""),
-                    whereArgs);
+                        + (!TextUtils.isEmpty(where) ? " AND (" + where + ')' : ""),
+                        whereArgs);
                 break;
             default:
                 throw new IllegalArgumentException("Unknown URI " + uri);

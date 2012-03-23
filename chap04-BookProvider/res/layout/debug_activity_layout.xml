@@ -5,10 +5,10 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent">
     <TextView
-        android:id="@+id/text1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Debug Text Appears here"
-        />
+            android:id="@+id/text1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Debug Text Appears here"
+            />
 
 </LinearLayout>

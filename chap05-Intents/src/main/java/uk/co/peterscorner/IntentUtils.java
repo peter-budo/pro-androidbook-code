@@ -85,7 +85,7 @@ public class IntentUtils {
         activity.appendText(outputIntent.getData().toString());
     }
 
-    public static void tryOneOfThese(Activity activity){
+    public static void tryOneOfThese(Activity activity) {
         IntentUtils.call(activity);
     }
 }

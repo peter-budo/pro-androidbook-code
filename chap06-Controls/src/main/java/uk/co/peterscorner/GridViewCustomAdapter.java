@@ -19,20 +19,21 @@ public class GridViewCustomAdapter extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.gridviewcustom);
-        GridView gv = (GridView)findViewById(R.id.gridview);
+        GridView gv = (GridView) findViewById(R.id.gridview);
         ManateeAdapter adapter = new ManateeAdapter(this);
         gv.setAdapter(adapter);
     }
-    
-    public static class ManateeAdapter extends BaseAdapter{
+
+    public static class ManateeAdapter extends BaseAdapter {
         private static final String TAG = "ManateeAdapter";
         private static int convertViewCounter = 0;
         private Context mContext;
         private LayoutInflater mInflater;
-        static class ViewHolder{
+
+        static class ViewHolder {
             ImageView image;
         }
-        
+
         private int[] manatees = {
                 R.drawable.manatee00, R.drawable.manatee01, R.drawable.manatee02,
                 R.drawable.manatee03, R.drawable.manatee04, R.drawable.manatee05,
@@ -47,61 +48,61 @@ public class GridViewCustomAdapter extends Activity {
                 R.drawable.manatee30, R.drawable.manatee31, R.drawable.manatee32,
                 R.drawable.manatee33
         };
-        
+
         private Bitmap[] manateeImages = new Bitmap[manatees.length];
         private Bitmap[] manateeThumbs = new Bitmap[manatees.length];
-        
-        public ManateeAdapter(Context context){
+
+        public ManateeAdapter(Context context) {
             Log.v(TAG, "Constructing ManateeAdapter");
             this.mContext = context;
             mInflater = LayoutInflater.from(context);
-            for(int i = 0; i < manatees.length; i++){
+            for (int i = 0; i < manatees.length; i++) {
                 manateeImages[i] = BitmapFactory.decodeResource(context.getResources(), manatees[i]);
                 manateeThumbs[i] = Bitmap.createScaledBitmap(manateeImages[i], 100, 100, false);
             }
         }
-        
-        public int getCount(){
+
+        public int getCount() {
             Log.v(TAG, "in getCount()");
             return manatees.length;
         }
-        
-        public int getViewTypeCount(){
+
+        public int getViewTypeCount() {
             Log.v(TAG, " in getViewTypeCount()");
             return 1;
         }
-        
-        public int getItemViewType(int position){
+
+        public int getItemViewType(int position) {
             Log.v(TAG, " in getItemViewType() for position " + position);
             return 0;
         }
-        
-        public View getView(int position, View convertView, ViewGroup parent){
+
+        public View getView(int position, View convertView, ViewGroup parent) {
             ViewHolder holder;
-            
-            Log.v(TAG, " in getView for position " + position + ", convertView is " + ((convertView == null)?"null":"being recycled"));
-            
-            if(convertView == null){
+
+            Log.v(TAG, " in getView for position " + position + ", convertView is " + ((convertView == null) ? "null" : "being recycled"));
+
+            if (convertView == null) {
                 convertView = mInflater.inflate(R.layout.gridimage, null);
                 convertViewCounter++;
                 Log.v(TAG, convertViewCounter + " convertViews have been created");
-                
+
                 holder = new ViewHolder();
                 holder.image = (ImageView) convertView.findViewById(R.id.gridImageView);
                 convertView.setTag(holder);
-            } else{
+            } else {
                 holder = (ViewHolder) convertView.getTag();
             }
             holder.image.setImageBitmap(manateeImages[position]);
             return convertView;
         }
-        
-        public Object getItem(int position){
+
+        public Object getItem(int position) {
             Log.v(TAG, " in getItem() for position " + position);
             return manateeImages[position];
-        } 
-        
-        public long getItemId(int position){
+        }
+
+        public long getItemId(int position) {
             Log.v(TAG, " in getItemId() for position " + position);
             return position;
         }

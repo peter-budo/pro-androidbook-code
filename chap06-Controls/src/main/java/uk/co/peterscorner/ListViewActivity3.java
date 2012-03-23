@@ -38,16 +38,16 @@ public class ListViewActivity3 extends ListActivity {
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(this
                 , android.R.layout.simple_list_item_multiple_choice
                 , cursor, cols, views);
-        
+
         this.setListAdapter(adapter);
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     }
-    
-    public void doClick(View view){
+
+    public void doClick(View view) {
         int count = lv.getCount();
         SparseBooleanArray viewItems = lv.getCheckedItemPositions();
-        for(int i=0; i < count; i++){
-            if(viewItems.get(i)){
+        for (int i = 0; i < count; i++) {
+            if (viewItems.get(i)) {
                 cursor.moveToPosition(i);
                 long id = cursor.getLong(idCol);
                 String name = cursor.getString(nameCol);
