@@ -54,6 +54,7 @@ public class MainActivity extends Activity{
         String option = prefs.getString(resources.getString(R.string.selected_flight_option),
                 resources.getString(R.string.flight_sort_option_default_value));
         String[] optionText = resources.getStringArray(R.array.flight_sort_options);
+        tv.setText("option values is " + option + " (" + optionText[Integer.parseInt(option)] + ")");
 
     }
 }
