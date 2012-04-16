@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello shakespeare-sdk!</string>
+    <string name="app_name">Shakespeare-SDK</string>
+</resources>
