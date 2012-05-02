@@ -2,11 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>co.uk.peterscorner</groupId>
-    <artifactId>shakespeare-sdk</artifactId>
+    <groupId>uk.co.peterscorner</groupId>
+    <artifactId>dialog-fragment-demo</artifactId>
     <version>1.0</version>
     <packaging>apk</packaging>
-    <name>ShakespeareSDK</name>
+    <name>Dialog Fragment Demo</name>
 
     <properties>
         <platform.version>2.3.3</platform.version>

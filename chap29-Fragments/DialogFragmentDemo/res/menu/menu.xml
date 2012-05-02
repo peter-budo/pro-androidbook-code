@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:id="@+id/menuGroup_Main">
+        <item android:id="@+id/menu_show_prompt_dialog"
+              android:title="Show Prompt Dialog"/>
+        <item android:id="@+id/menu_show_alert_dialog"
+              android:title="Show Alert Dialog"/>
+        <item android:id="@+id/menu_help"
+              android:title="Show Help Dialog"/>
+    </group>
+</menu>
